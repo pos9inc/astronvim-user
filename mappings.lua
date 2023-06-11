@@ -11,13 +11,32 @@ return {
     ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
     ["<leader>bD"] = {
       function()
-        require("astronvim.utils.status").heirline.buffer_picker(function(bufnr) require("astronvim.utils.buffer").close(bufnr) end)
+        require("astronvim.utils.status").heirline.buffer_picker(function(bufnr)
+          require("astronvim.utils.buffer").close(
+            bufnr)
+        end)
       end,
       desc = "Pick to close",
     },
     -- tables with the `name` key will be registered with which-key if it's installed
     -- this is useful for naming menus
     ["<leader>b"] = { name = "Buffers" },
+    ["<Leader>gn"] = { "<Cmd>Neogit<CR>", desc = "Neogit" },
+    ["<Leader>fg"] = {
+      function() require("telescope").extensions.live_grep_args.live_grep_args() end,
+      desc = "live grep",
+    },
+    ["<Leader>fb"] = {
+      -- https://github.com/nvim-telescope/telescope-file-browser.nvim
+      function() require("telescope").extensions.file_browser.file_browser() end,
+      desc = "file browser",
+    },
+    ["[j"] = { "<Plug>(jumpcursor-jump)", desc = "jump" },
+    ["<S-l>"] = { "<cmd>bnext<cr>", desc = "Next Buffer" },
+    ["<S-h>"] = { "<cmd>bprev<cr>", desc = "Prev Buffer" },
+    ["<S-g>"] = { "<cmd>Neotree git_status<cr>", desc = "git status" },
+    ["<S-b>"] = { "<cmd>Neotree buffers<cr>", desc = "buffers" },
+    ["<S-e>"] = { "<cmd>Neotree filesystem<cr>", desc = "explorer" },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
   },
