@@ -20,4 +20,10 @@ return {
     event = "VeryLazy",
     config = function() require("telescope").load_extension "file_browser" end,
   },
+  {
+    -- 行ごとにgitblameを表示するプラグイン
+    "f-person/git-blame.nvim",
+    version = "*",
+    event = "VeryLazy",
+  },
 }
